@@ -187,6 +187,24 @@ If the Coloris color picker doesn't work:
 
 To verify the application runs completely offline:
 
+### Automated Test Page
+
+The repository includes an automated offline test page:
+
+1. **Disconnect from internet** completely
+2. **Start the application**:
+   ```bash
+   php -S localhost:8000
+   ```
+3. **Open test page**: http://localhost:8000/test-offline.html
+4. **Click "Run Tests"** button
+5. **Review results**:
+   - Green = Pass
+   - Yellow = Warning (review)
+   - Red = Fail (needs fixing)
+
+### Manual Verification
+
 1. **Disconnect from internet** completely
 2. **Clear browser cache** to ensure no cached external resources
 3. **Start the application**:
@@ -198,6 +216,21 @@ To verify the application runs completely offline:
    - Open Console (F12)
    - Check Network tab - all requests should be to localhost
    - No failed CDN requests should appear
+
+### Verification Script
+
+Run the command-line verification script:
+
+```bash
+./scripts/verify-offline.sh
+```
+
+This checks for:
+- CDN references in code
+- External HTTP/HTTPS URLs
+- HTTP client usage
+- Required asset files
+- Vendored library status
 
 ## Development
 

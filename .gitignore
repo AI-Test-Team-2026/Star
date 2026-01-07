@@ -35,3 +35,9 @@ assets/build_status/build_json.json
 assets/build_status/*
 assets/tp_version/*
 
+# Environment files
+#-------------------------
+.env
+.env.local
+.env.*.local
+
