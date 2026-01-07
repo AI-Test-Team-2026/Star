@@ -1,0 +1,108 @@
+
+
+.mapping_table, .mapping_table tr, .mapping_table tr td {
+	border: 1px black solid;
+	text-align: center;
+	font-size: x-small;
+}
+
+.mapping_table tr td {
+	width: 20px;
+}
+
+.mux0_color{
+	background-color: #edf2bf;
+}
+
+.mux1_color{
+	background-color: #d3edf8;
+}
+
+.mux2_color{
+	background-color: #f9efeb;
+}
+
+.mux3_color{
+	background-color: #ffebcc;/*#f3f0f5;*/
+}
+/********************************/
+.frame0_color{
+	color: #c45f3b;
+}
+.frame1_color{
+	color: #ff8000;
+}
+.frame2_color{
+	color: #ffba42;
+}
+.frame3_color{
+	color: #9daa22;
+}
+.frame4_color{
+	color: #22a5dd;
+}
+.frame5_color{
+	color: #201234;
+}
+.frame6_color{
+	color: #78608D;
+}
+.frame7_color{
+	color: black;
+}
+.frame_tp_mux2_1_color{
+	color: #FF7777;
+}
+.frame_tp_mux2_2_color{
+	color: #508C9B;
+}
+
+/********************************/
+.f0_bg{
+	background-color: #c45f3b !important;
+	color: white !important;
+}
+.f1_bg{
+	background-color: #ff8000 !important;
+	color: white !important;
+}
+.f2_bg{
+	background-color: #ffba42 !important;
+	color: white !important;
+}
+.f3_bg{
+	background-color: #9daa22 !important;
+	color: white !important;
+}
+.f4_bg{
+	background-color: #22a5dd !important;
+	color: white !important;
+}
+.f5_bg{
+	background-color: #999966 !important;
+	color: white !important;
+}
+.f6_bg{
+	background-color: #78608D !important;
+	color: white !important;
+}
+.f7_bg{
+	background-color: black !important;
+	color: white !important;
+}
+/*******************************************/
+.pa0402_version_todo{
+	background-color: #FF7777;
+}
+.pa0402_version_marker{
+	background-color: #ffff99;
+}
+.pa0402_version_formula{
+	background-color: #ffccff;
+	color: #c45f3b;
+}
+.pa0402_version_ref{
+	font-style:italic;
+	text-decoration: underline;
+}
+

@@ -1,0 +1,182 @@
+/*
+.bin_oem_overlay {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    color: #d7ff33; 
+	background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+	text-align: center;
+	display: none;
+}*/
+.oem_overlay {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading .oem_overlay {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .oem_overlay {
+    display: flex;
+}
+
+.oem_button_select {
+	color: #fff;
+	background-color: #78608D;
+	border-color: #78608D;
+	box-shadow: none;
+}
+.oem_button_unselect {
+	color: #78608D;
+	background-color: #fff;
+	border-color: #78608D;
+}
+.textnote{
+	background-attachment: local;
+    background-image:
+        linear-gradient(to right, white 10px, transparent 10px),
+        linear-gradient(to left, white 10px, transparent 10px),
+        repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    background-size: 100% 100%, 100% 100%, 100% 31px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 31px;
+    font-family: Arial, Helvetica, Sans-serif;
+    padding: 8px;
+	font-weight: bold;
+	color: #201234;
+}
+.bin_loading{
+	opacity: 0.3;
+
+	background: #333 url('../img/Loading_1.gif') no-repeat 50% 50%;
+}
+.s_table tr, .s_table td {
+	border: 2px solid #33333333;
+	text-align: center;
+	vertical-align: middle;
+}
+.reg_ptba_current {
+	color: red;
+}
+.reg_editorable{
+	background-color: #F9D18F;
+}
+
+.card-cust-style{
+	/*background-image: url('../img/41.PNG');*/
+}
+
+.card-oem-192{
+	background-color: #d3edf8;
+	/*background-image: url("texture/connected.png");*/
+	background-image: url("texture/bg_1.png");
+	background-position: bottom 0px right 0px;
+	background-size: 25%;
+	background-repeat: no-repeat;
+	
+}
+
+.card-oem-192-cut2{
+	background-color: #d6ece6;
+	background-image: url("texture/bg_3.png");
+	background-position: bottom 0px right 0px;
+	background-size: 25%;
+	background-repeat: no-repeat;
+	
+}
+.card-oem-193{
+	background-color: #fff5cc;
+	/*background-image: url("texture/connected.png");*/
+	background-image: url("texture/bg_4.png");
+	background-position: bottom 0px right 0px;
+	background-size: 15%;
+	background-repeat: no-repeat;
+}
+
+.oem_sidebar_fae{
+	background-image: url("texture/squre_back.png") !important;
+}
+
+.dd_checker_table{
+	font-family: 'Kalam', cursive;
+	font-weight: bold;
+}
+
+/******************************************************/
+.tp_version_edit{
+	display: none;
+}
+.dd_version_edit{
+	display: none;
+}
+
+[contenteditable] {
+  outline: 0px solid transparent;
+}
+
+.oem_notice_double_check{
+	color: blue;
+}
+.oem_notice_out_of_range{
+	color: red;
+}
+
+.itemlist_style{
+	color: blue;
+}
+.lvds_timing_edit{
+	background-color: #f6efb3;
+}
+
+.content-wrapper{
+	background-image: url("../img/43.png");
+	background-position: top 0.2rem right 0.2rem;
+	background-size: 9rem;
+	background-repeat: no-repeat;
+}
+
+.pa5495_oem_wrapper{
+	background-image: url("../img/46.png") !important;
+/*	background-position: top 0.2rem right 0.2rem;
+	background-size: 9rem;
+	background-repeat: no-repeat;*/
+}
+
+.tcon_script_dsp{
+	background-color: #3B5249;
+	color: white;
+}
+.tcon_script_mixer1{
+	background-color: #03506F;
+	color: white;
+}
+.tcon_script_mixer2{
+	background-color: #7E7474;
+	color: white;
+}
+.tcon_script_tcon{
+	background-color: #354259;
+	color: white;
+}
+.fw_checklist_expand_bg{
+	background-color: #343a40;
+}
+.fw_checklist_expand_table_bg{
+	background-color: #ffffff;
+}

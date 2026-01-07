@@ -1,0 +1,858 @@
+[
+  {
+    "name": "master",
+    "detail": "fw commit #",
+    "value": "3fab400e",
+    "type": "4",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "IC_SIGN_2",
+    "detail": "",
+    "value": "HX83192-A",
+    "type": "1",
+	"select": ["HX83192-A", "HX83192-B", "HX83192-C", "HX83192-D", "HX83193-A", "HX83193-B"],
+    "show": 1,
+	"size": 0
+  },
+  {
+    "name": "IC_CUT_VERSION",
+    "detail": "",
+    "value": "0x02",
+    "type": "1",
+	"select": ["0x01", "0x02", "0x03", "0x04"],
+    "show": 1,
+	"size": 0
+  },
+  {
+    "name": "RELOAD_FAIL_DETECT",
+    "detail": "Do fail detection while FW reload",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 0
+  },
+  {
+    "name": "EMI_IDLE_MODE",
+    "detail": "Idle Mode Function EN",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 2400
+  },
+  {
+    "name": "PANEL_VER",
+    "detail": "Panel Version in demical.",
+    "value": "8",
+    "type": "2",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "CASCADE_IC_NUM",
+    "detail": "",
+    "value": "3",
+	"select": ["1", "2", "3"],
+    "type": "1",
+    "show": 1,
+	"config_new": 1,
+	"size": "39860,46900,51924"
+  },
+  {
+    "name": "IC_VERSION",
+    "value": "0x02",
+    "show": 0,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "ADC_OPTION",
+    "detail": "Vertical/Horizonal Mapping",
+    "value": "0",
+	"select": ["Vertical", "Horizonal"],
+	"selectvalue": [0, 1],
+    "type": "1",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "XRES",
+    "detail": "",
+    "value": "1920",
+    "type": "2",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "YRES",
+    "detail": "",
+    "value": "1080",
+    "type": "2",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "ADC_NUM_CYC_1",
+    "detail": "In single IC, left side mux0 ADC count",
+    "value": "120",
+    "type": "2",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "ADC_NUM_CYC_2",
+    "detail": "In single IC, left side mux1 ADC count",
+    "value": "120",
+    "type": "2",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "ADC_NUM_CYC_3",
+    "detail": "In single IC, left side mux2 ADC count",
+    "value": "120",
+    "type": "2",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "ADC_NUM_CYC_4",
+    "detail": "In single IC, left side mux3 ADC count",
+    "value": "120",
+    "type": "2",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "MAX_RX_NUM",
+    "detail": "In single IC, the row count",
+    "value": "24",
+    "type": "2",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "MAX_TX_NUM",
+    "detail": "In single IC, the column count",
+    "value": "40",
+    "type": "2",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "A_CHIP_RX_NUM",
+    "value": "0",
+    "show": 0,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "ADC_USED_NUM",
+    "value": "120",
+    "show": "0",
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "A_MUX_COL_NUM",
+    "value": "0",
+    "show": 0,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "SHIFT_TO_MASTER",
+    "value": "0",
+    "show": 0,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "SHIFT_TO_SLAVE2",
+    "value": "0",
+    "show": 0,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "GESTURE_IS_VERTICAL",
+    "value": "0",
+    "show": 0,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "PANEL_POWER_MODE",
+    "detail": "IC power mode",
+    "value": "5",
+	"select": ["1", "3", "5"],
+    "type": "1",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "VGL_VGH_LFDEN",
+    "detail": "LFD setting. Check with DD SE",
+    "value": "01",
+	"select": ["00", "01", "10", "11"],
+    "type": "1",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "LONGV_MODE",
+    "detail": "LH/LV",
+    "value": "0x00",
+	"select": ["LH", "LV"],
+	"selectvalue": ["0x00", "0x01"],
+    "type": "1",
+    "show": 1,
+	"config_new": 1,
+	"size": 0
+  },
+  {
+    "name": "SELF_TEST_V2_MAPPING",
+    "value": "0x01",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "SELF_TEST_SETTING_BY_TP_INIT",
+    "detail": "",
+    "value": "0x01",
+    "type": "0",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "VIDEO_GEN",
+    "value": "0x00",
+    "show": 0,
+	"size": 64
+  },
+  {
+    "name": "DYNAMIC_HSYNC_ASYNC_WORKAROUND",
+    "detail": "CUT2 LH solution. Please check with DD SE",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 200
+  },
+  {
+    "name": "DYNAMIC_HSYNC_ASYNC_GAS",
+    "detail": "CUT2 LH solution. Please check with DD SE",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 132
+  },
+  {
+    "name": "LVDS_NORMAL_FRAME_WORKAROUND",
+    "detail": "CUT2 LH solution. Please check with DD SE",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 40
+  },
+  {
+    "name": "POLLING_DISP",
+    "detail": "Polling for disp flow. Please check with DD SE",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 0
+  },
+  {
+    "name": "SUPER_SAFE_MODE",
+    "detail": "Super safe mode",
+    "value": "On",
+    "type": "0",
+    "show": 1,
+	"size": -128
+  },
+  {
+    "name": "AUTO_SELF_TEST",
+    "value": "0x01",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "AUTO_SELF_TEST_NORMAL",
+    "detail": "Normal self test",
+    "value": "On",
+    "type": "0",
+    "show": 1,
+	"size": 2336
+  },
+  {
+    "name": "AUTO_SELF_TEST_INSPECT",
+    "detail": "Inspect mode",
+    "value": "On",
+    "type": "0",
+    "show": 1,
+	"size": 2560
+  },
+  {
+	"name": "Protocol",
+    "detail": "",
+	"select": ["Himax Option 1 - Point + FingerSize + Checksum", "Himax Option 2 - EventID & Point + FingerSize + Checksum", "Himax Option 2 - Desay Format", "Himax Option 3 - EventID/PalmID & Point + FingerSize + Checksum", "BMW", "DA", "FCA", "ATMEL"],
+	"selectvalue": ["",  "HX_FORMAT_2", "DESAY_FORMAT", "HX_FORMAT_3", "BMW_PROTOCOL", "DA_PROTOCOL", "FCA_PROTOCOL", "ATMEL_PROTOCOL"],
+    "value": "",
+    "type": "1",
+    "show": 1,
+	"tobereplace": 1,
+	"size": "0,1612,1804,1612,2240,5620,388,448"
+  },
+  {
+    "name": "BMW_PROTOCOL",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "DA_PROTOCOL",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "HX_PROTOCOL_ID",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "FCA_PROTOCOL",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "ATMEL_PROTOCOL",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "DESAY_FORMAT",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "Report_Rate",
+    "detail": "",
+    "value": "",
+	"select": ["Report twice in a Vsync (120Hz)", "Report once in a Vsync (60Hz)"],
+	"selectvalue": ["0x00", "0x01"],
+    "type": "1",
+    "show": 1,
+	"tobereplace": 1,
+	"size": 0
+  },
+  {
+    "name": "Himax_Report_Rate_60Hz",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "PLL_BY_DD_INIT",
+    "value": "0x01",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "USE_1129_COMMAND",
+    "detail": "use PON or 1129",
+	"select": ["PON", "1129"],
+	"selectvalue": ["0x00", "0x01"],
+    "value": "Off",
+    "type": "1",
+    "show": 1,
+	"size": 0
+  },
+  {
+	"name": "DSP_MANUAL_ON",
+	"value":"0x00",
+	"show": 0,
+	"size": 0
+  },
+  {
+    "name": "DD_TPS_DETECTION",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  }, 
+  {
+    "name": "TPS_UPDATE",
+    "detail": "",
+    "value": "",
+	"select": ["Off", "Update VCOM", "Update AGMA", "Update DGC"],
+	"selectvalue": [0 ,1, 2, 3],
+    "type": "1",
+    "show": 1,
+	"tobereplace": 1,
+	"size": "0,2764,2732,2732"
+  },
+  {
+    "name": "TPS_DYNAMIC_UPDATE_VCOM",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "TPS_DYNAMIC_UPDATE_AGMA",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "TPS_DYNAMIC_UPDATE_DGMA",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "EMI_RX_SINE_PHASE_270",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "EMI_RX_EQ_HEAD",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "Sine_Wave_Function",
+    "detail": "Sine Wave Function EN",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"tobereplace": 1,
+	"size": 576
+  },
+  {
+    "name": "PROTECT_FRAME_BY_TP_INIT",
+    "value": "0x01",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "GHOST_PROTECTION_TSIX",
+    "detail": "Trigger Tsix when ghost point occurred",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 128
+  },
+  {
+    "name": "Touch_coordinate_origin",
+    "detail": "Touch Coordinate Origin Position",
+    "value": "",
+	"select": [ "Option 1 - Left Up corner when IC at the bottom", "Option 2 - Left Up corner when IC at the top"],
+	"selectvalue": [1, 0],
+    "type": "1",
+    "show": 1,
+	"tobereplace": 1,
+	"size": 0
+  },
+  {
+	"name": "REVERSE_OUTPUTBUF",
+	"value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "OSC_TRACKING_BURST_MODE",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "OSC_TRACKING_LINE_COUNTER",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "Osc_tracking_type",
+    "detail": "Osc tracking type",
+    "value": "1",
+	"select": [ "1", "2", "3", "4"],
+    "type": "1",
+    "show": 1,
+	"tobereplace": 1,
+	"size": "0,192,704,640"
+  },
+  {
+    "name": "OSC_TRACKING_BY_TP_INIT",
+    "value": "0x01",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "SKIP_OSC_TRACKING_WHEN_POINT",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "DD_GAMMA_UPDATE",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "HOST_UPDATE_BY_DDREG",
+    "detail": "Gamma update by dd reg or host command",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 0
+  },
+  {
+    "name": "DD_GAMMA_RETURN_INDEX",
+    "detail": "After host update, return current index",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 0
+  },
+  {
+    "name": "DD_UPDATE_VCOM_FROM_FLASH_WHEN_PO",
+    "detail": "VCOM update when power on",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 544
+  },
+  {
+    "name": "DD_UPDATE_AGMA_FROM_FLASH_WHEN_PO",
+    "detail": "AGMA update when power on",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 544
+  },
+  {
+    "name": "DD_UPDATE_DGMA_FROM_FLASH_WHEN_PO",
+    "detail": "DGC update when power on",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 544
+  },
+  {
+    "name": "DD_DYNAMIC_UPDATE_VCOM_BY_HOST",
+    "detail": "VCOM update by host command",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 1056
+  },
+  {
+    "name": "DD_DYNAMIC_UPDATE_AGMA_BY_HOST",
+    "detail": "AGMA update by host command",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 1024
+  },
+  {
+    "name": "DD_DYNAMIC_UPDATE_DGMA_BY_HOST",
+    "detail": "DGC update by host command",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 1024
+  },
+  {
+    "name": "TOUCH_FW_OFF",
+    "detail": "Touch OFF",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": -1056
+  },
+  {
+    "name": "RECAL_HOLD",
+    "detail": "recal hold",
+    "value": "On",
+    "type": "0",
+    "show": 1,
+	"size": 288
+  },
+  {
+    "name": "RECAL_THX_BY_SCALE",
+    "detail": "recal thx by scale",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 32
+  },
+  {
+    "name": "LEAVE_SIG_THRESHOLD",
+    "detail": "",
+    "value": "0x01",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "NEW_GRAVITY",
+    "detail": "New gravity algorithm on P2P",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 2320
+  },
+  {
+    "name": "GLOVE_FUNCTION_DEF",
+    "detail": "Glove Function EN",
+    "value": "On",
+    "type": "0",
+    "show": 1,
+	"size": 1000
+  },
+  {
+    "name": "GLOVE_ENABLE_BY_PASSWORD",
+    "detail": "Default glove off. Turn on glove by password",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 0
+  },
+  {
+    "name": "GLOVE_WEIGHT_BY_SCALE",
+    "detail": "glove weight by scale",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 32
+  },
+  {
+    "name": "CASCADE_RELOAD_CHECK",
+    "value": "0x01",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "AUTOMOBILE_REMOVE_FIR",
+    "value": "0x01",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "HOVER_PALM",
+    "detail": "hover palm",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 168
+  },
+  {
+    "name": "PARTIAL_PALM",
+    "detail": "partial palm",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 592
+  },
+  {
+    "name": "ESD_DETECTION",
+    "detail": "ESD pattern detection",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 328
+  },
+  {
+    "name": "DD_TPEN_5",
+    "detail": "",
+    "value": "",
+	"select": ["No function", "Noise Detect", "Hopping"],
+	"selectvalue": [0 ,1, 2],
+    "type": "1",
+    "show": 1,
+	"tobereplace": 1,
+	"size": "0,1640,4688"
+  },
+  {
+    "name": "TX_HOPPING_DEF",
+    "value": "0x00",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "NOISE_DET_ONLY",
+    "value": "0x01",
+    "show": 0,
+	"size": 0
+  },
+  {
+    "name": "LPWUG_DEF",
+    "detail": "lpwug mode",
+    "value": "Off",
+    "type": "0",
+    "show": 1,
+	"size": 5096
+  },
+  {
+    "name": "Touch_Point_Number",
+    "detail": "Touch Point Number",
+    "value": "",
+	"select": [1,2,3,4,5,6,7,8,9,10],
+    "type": "1",
+    "show": 1,
+	"tobereplace": 1,
+	"size": 0
+  },
+  {
+    "name": "FAIL_DET",
+    "detail": "FAIL_DET output mode",
+    "value": "",
+	"select": ["Option 1(Default): FAIL_DET -> DD + TP", "Option 2: FAIL_DET -> DD; TP_GPIO[2] -> TP", "Option 3: FAIL_DET -> DD; TP_GPIO[1] -> DD + TP Alive"],
+	"selectvalue": [0, 1, 2],
+    "type": "1",
+    "show": 1,
+	"tobereplace": 1,
+	"size": 0
+  },
+  {
+    "name": "Tsix_Int",
+    "detail": "Touch Initerrupt Trigger Type",
+    "value": "",
+	"select": ["Level Trigger", "Edge Trigger"],
+	"selectvalue": [0, 1],
+    "type": "1",
+    "show": 1,
+	"tobereplace": 1,
+	"size": 0
+  },
+  {
+	"name": "algorithm_en_set_2",
+	"value": "0x00",
+    "show": 0,
+	"config_init": 1,
+	"size": 0
+  },
+  {
+	"name": "pb_num",
+	"value": "0x00",
+    "show": 0,
+	"config_init": 1,
+	"size": 0
+  },
+  {
+	"name": "algorithm_en_set_4",
+	"value": "0x00",
+    "show": 0,
+	"config_init": 1,
+	"size": 0
+  },
+  {
+	"name": "algorithm_en_set_5",
+	"value": "0x00",
+    "show": 0,
+	"config_init": 1,
+	"size": 0
+  },
+  {
+	"name": "algorithm_en_set_automobile",
+	"value": "0x00",
+    "show": 0,
+	"config_init": 1,
+	"size": 0
+  },
+  {
+	"name": "algorithm_en_set_automobile2",
+	"value": "0x00",
+    "show": 0,
+	"config_init": 1,
+	"size": 0
+  },
+  {
+	"name": "fail_det_pin_sel",
+	"value": "0x00",
+    "show": 0,
+	"config_init": 1,
+	"size": 0
+  },
+  {
+	"name": "fail_det_mode_sel",
+	"value": "0x00",
+    "show": 0,
+	"config_init": 1,
+	"size": 0
+  },
+  {
+	"name": "Cfg_customer",
+	"detail": "Max length is 12",
+    "type": "3",
+	"value": "Tier1_Car",
+    "show": 1,
+	"config_cfg": 1,
+	"size": 0
+  },
+  {
+	"name": "Cfg_project",
+	"detail": "Max length is 12",
+    "type": "3",
+	"value": "Maker_Size",
+    "show": 1,
+	"config_cfg": 1,
+	"size": 0
+  },
+  {
+	"name": "Cfg_fw_major",
+	"detail": "Max length is 12",
+    "type": "3",
+	"value": "Remark1",
+    "show": 1,
+	"config_cfg": 1,
+	"size": 0
+  },
+   {
+	"name": "Cfg_fw_minor",
+	"detail": "Max length is 12",
+    "type": "3",
+	"value": "Remark2",
+    "show": 1,
+	"config_cfg": 1,
+	"size": 0
+  },
+   {
+	"name": "Cfg_date",
+	"detail": "Max length is 12",
+    "type": "3",
+	"value": "",
+    "show": 1,
+	"config_cfg": 1,
+	"size": 0
+  },
+  {
+	"name": "Cfg_himax_ticket",
+	"detail": "Max length is 12",
+    "type": "3",
+	"value": "",
+    "show": 1,
+	"config_cfg": 1,
+	"size": 0
+  }
+  
+]

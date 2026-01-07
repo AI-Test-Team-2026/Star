@@ -1,0 +1,942 @@
+[
+	{
+		"name": "F0 Normal OSR_CC",
+		"itemname": "sleep_out_cc",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "6 times of sigma",
+		"max": 255,
+		"min": 15
+	},
+	{
+		"name": "F1 Normal OSR_CC",
+		"itemname": "hopping_cc",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "6 times of sigma",
+		"max": 255,
+		"min": 15		
+	},
+	{
+		"name": "GLOVE OSR_CC",
+		"itemname": "glove_cc",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "Same as Normal OSR_CC",
+		"max": 255,
+		"min": 15		
+	},
+	{
+		"name": "F0 Noise OSR_CC",
+		"itemname": "noise_cc",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "Thx > 9 times of sigma",
+		"max": 255,
+		"min": 30		
+	},
+	{
+		"name": "F1 Noise OSR_CC",
+		"itemname": "hopping_noise_cc",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "Thx > 9 times of sigma",
+		"max": 255,
+		"min": 30		
+	},
+	{
+		"name": "Sleep in OSR_CC",
+		"itemname": "lpwug_cc",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0		
+	},
+	{
+		"name": "F0 Normal CO_AXIS_DIV",
+		"itemname": "co_axis_div",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "By panel",
+		"max": 50,
+		"min": 5		
+	},
+	{
+		"name": "GLOVE CO_AXIS_DIV",
+		"itemname": "co_axis_div_ac",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "By panel",
+		"max": 50,
+		"min": 5		
+	},
+	{
+		"name": "F1 Normal CO_AXIS_DIV",
+		"itemname": "co_axis_div_bending",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "By panel",
+		"max": 50,
+		"min": 5		
+	},
+	{
+		"name": "GLOVE_ENT_BD",
+		"itemname": "glove_ent_bd_rng",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 1,
+		"min": 0		
+	},
+	{
+		"name": "GLOVE_ULMT",
+		"itemname": "glove_ent_ulmt",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "By glove thickness, Thx > GLOVE_DLMT",
+		"max": -1,
+		"min": -1		
+	},
+	{
+		"name": "GLOVE_DLMT",
+		"itemname": "glove_ent_dlmt",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "By glove thickness",
+		"max": -1,
+		"min": -1		
+	},
+	{
+		"name": "GLOVE_ENT_COUNT",
+		"itemname": "glove_ent_fng_lev_tm",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 30,
+		"min": 10		
+	},
+	{
+		"name": "GLOVE_ENT_RANGE",
+		"itemname": "glove_ent_rng",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 15,
+		"min": 15		
+	},
+	{
+		"name": "GLOVE_TM",
+		"itemname": "glove_ent_sel_enter",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 5,
+		"min": 2		
+	},
+	{
+		"name": "GLOVE_Linearity_iir",
+		"itemname": "avg_dyc_iir_g",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "By glove thickness, linearity",
+		"max": -1,
+		"min": -1		
+	},
+	{
+		"name": "GLOVE_Linearity_fir",
+		"itemname": "avg_ord_fir_g",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "By glove thickness, linearity",
+		"max": -1,
+		"min": -1		
+	},
+	{
+		"name": "GLOVE_Signal Threshold",
+		"itemname": "glove_thpx",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "By glove thickness, Thx > 6 times of sigma ",
+		"max": -1,
+		"min": -1		
+	},
+	{
+		"name": "GLOVE_WEG_THPX",
+		"itemname": "glove_weg_thpx_ent",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": ">= GLOVE_Signal Threshold",
+		"max": -1,
+		"min": -1		
+	},
+	{
+		"name": "GLOVE_LEV_COUNT",
+		"itemname": "glove_lev_mod_frm",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 20,
+		"min": 10		
+	},
+	{
+		"name": "GLOVE Enter Debounce",
+		"itemname": "pt_ent_num_glove",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 5,
+		"min": 2		
+	},
+	{
+		"name": "GLOVE Leave Debounce",
+		"itemname": "pt_lev_num_glove2",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 5,
+		"min": 3		
+	},
+	{
+		"name": "GLOVE Palm REJ Block",
+		"itemname": "mut_rej_blk",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "Same as Palm REJ Block",
+		"max": 255,
+		"min": 100		
+	},
+	{
+		"name": "GLOVE Palm MUT Block",
+		"itemname": "glove_palm_blk",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "Same as Palm MUT Block",
+		"max": 50,
+		"min": 20		
+	},
+	{
+		"name": "Normal Signal Threshold",
+		"itemname": "mut_thpx_lgd",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "By panel",
+		"max": -1,
+		"min": -1		
+	},
+	{
+		"name": "Signal_scale",
+		"itemname": "sig_thx_scale",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 5,
+		"min": 1			
+	},
+	{
+		"name": "Leave Threshold",
+		"itemname": "leave_mut_thx",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},	
+	{
+		"name": "Normal CCL (ver/hor)",
+		"itemname": "mut_ccl_ord_lgd_l_cps",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 90,
+		"min": 60			
+	},
+	{
+		"name": "Normal CCL (dia)",
+		"itemname": "mut_ccl_ord_lgd_l_dps",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 90,
+		"min": 60			
+	},
+	{
+		"name": "Palm REJ Block",
+		"itemname": "mut_rej_blk_lgd",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 255,
+		"min": 100			
+	},	
+	{
+		"name": "Palm MUT Block",
+		"itemname": "mut_palm_blk_lg",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 50,
+		"min": 20			
+	},
+	{
+		"name": "MUT THX PALM",
+		"itemname": "mut_thpx_palm",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Same as Normal Signal Threshold",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "MUT_PALM_FRAME",
+		"itemname": "mut_plam_frame",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 100,
+		"min": 100			
+	},
+	{
+		"name": "WET_THPX_1ST",
+		"itemname": "weg_thpx_1st_lgd",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": -1,
+		"min": -1			
+	},	
+	{
+		"name": "WET_THPX_1ST_NOISE",
+		"itemname": "weg_thpx_1st_noise_add",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "WET_THPX_2ND",
+		"itemname": "weg_thpx_2nd_lgd",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "WET_THPX_2ND_NOISE",
+		"itemname": "weg_thpx_2nd_noise_add",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "WET_THPX_3RD",
+		"itemname": "weg_thpx_3rd_lgd",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "WET_THPX_3RD_NOISE",
+		"itemname": "weg_thpx_3rd_noise_add",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": -1,
+		"min": -1			
+	},	
+	{
+		"name": "FS distance",
+		"itemname": "mut_ccl_dis",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 10,
+		"min": 8			
+	},
+	{
+		"name": "FS enter",
+		"itemname": "finger_debounce_lgd_enter",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 2,
+		"min": 2			
+	},	
+	{
+		"name": "FS leave",
+		"itemname": "finger_debounce_lgd_leave",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 5,
+		"min": 5			
+	},
+	{
+		"name": "FS CCL(ver and hor.)",
+		"itemname": "mut_ccl_ord_s_cps",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 10,
+		"min": 10			
+	},	
+	{
+		"name": "FS CCL(dia.)",
+		"itemname": "mut_ccl_ord_s_dps",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 10,
+		"min": 10			
+	},
+	{
+		"name": "Normal Enter Debounce",
+		"itemname": "pt_ent_num_sleepout",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 1,
+		"min": 1			
+	},	
+	{
+		"name": "Normal Leave Debounce",
+		"itemname": "pt_lev_num_sleepout",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 1,
+		"min": 0			
+	},
+	{
+		"name": "Noise Enter Debounce",
+		"itemname": "pt_ent_num_noise",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 2,
+		"min": 2			
+	},	
+	{
+		"name": "Noise Leave Debounce",
+		"itemname": "pt_lev_num_noise",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 5,
+		"min": 5			
+	},
+	{
+		"name": "Normal Linearity_iir",
+		"itemname": "avg_dyc_iir",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Linearity",
+		"max": -1,
+		"min": -1			
+	},	
+	{
+		"name": "Normal Linearity_fir",
+		"itemname": "avg_ord_fir",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Linearity",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "Linearity_iir_gfs",
+		"itemname": "avg_dyc_iir_f",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Linearity",
+		"max": -1,
+		"min": -1			
+	},	
+	{
+		"name": "Linearity_fir_gfs",
+		"itemname": "avg_ord_fir_f",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Linearity",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "First_jitter_x",
+		"itemname": "avg_jit",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 40,
+		"min": 20			
+	},	
+	{
+		"name": "First_jitter_y",
+		"itemname": "avg_dst",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 40,
+		"min": 20			
+	},
+	{
+		"name": "Moving_jitter_x",
+		"itemname": "moving_jitter_x",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "Moving_jitter_y",
+		"itemname": "moving_jitter_y",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "Noise_jitter",
+		"itemname": "noise_jitter",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},		
+	{
+		"name": "BS_delay_frame",
+		"itemname": "bs_delay_frame",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 10,
+		"min": 5			
+	},
+	{
+		"name": "BS_UDT_frame",
+		"itemname": "bnk_seh_lat",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 5,
+		"min": 2			
+	},		
+	{
+		"name": "BS_UDT_TM",
+		"itemname": "bas_udt_tm",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 2,
+		"min": 1			
+	},
+	{
+		"name": "RECAL_TM",
+		"itemname": "recal_tm",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 5,
+		"min": 1			
+	},		
+	{
+		"name": "RECAL_THX",
+		"itemname": "recal_thpx",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Negative recal",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "MUT_NULL_BLK",
+		"itemname": "mut_null_blk",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Negative recal",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "MIN DIFF",
+		"itemname": "quit_idle_base_diff",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Negative recal",
+		"max": -1,
+		"min": -1			
+	},	
+	{
+		"name": "RECAL_DISTANCE_THX",
+		"itemname": "recal_distance",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 28,
+		"min": 28			
+	},
+	{
+		"name": "RECAL_DISTANCE_SCALE",
+		"itemname": "recal_distance_scale",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 100,
+		"min": 100			
+	},		
+	{
+		"name": "RECAL_HOLD_THX",
+		"itemname": "recal_count",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 144,
+		"min": 33			
+	},
+	{
+		"name": "RECAL_HOLD_SCALE",
+		"itemname": "recal_count_scale",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "",
+		"max": 100,
+		"min": 100			
+	},		
+	{
+		"name": "NOISE_SUM_SHIFT",
+		"itemname": "noise_sum_shift",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "Noise detect/Hopping",
+		"max": 7,
+		"min": 7			
+	},
+	{
+		"name": "F0_NOISE_ENTER_THX",
+		"itemname": "enter_noise_thx",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Noise detect/Hopping",
+		"max": -1,
+		"min": -1			
+	},		
+	{
+		"name": "F1_NOISE_ENTER_THX",
+		"itemname": "enter_noise_thx_f1",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Noise detect/Hopping",
+		"max": -1,
+		"min": -1	
+	},
+	{
+		"name": "F0_HOPPING_THX",
+		"itemname": "hopping_thx",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Noise detect/Hopping",
+		"max": -1,
+		"min": -1	
+	},		
+	{
+		"name": "F1_HOPPING_THX",
+		"itemname": "hopping_thx_f1",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Noise detect/Hopping",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "EXIT_NOISE_FRM",
+		"itemname": "exit_noise_frm",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Noise detect/Hopping",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "HOPPING_BL_UPDATE_FRM",
+		"itemname": "hopping_bl_update_frm",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 0,
+		"description": "Noise detect/Hopping",
+		"max": -1,
+		"min": -1			
+	},
+	{
+		"name": "Ghost Point L1 Protect Frame",
+		"itemname": "ghost_point_protect_l1",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "osc tracking/ems pattern",
+		"max": 20,
+		"min": 10			
+	},
+	{
+		"name": "Ghost Point L2 Protect Frame",
+		"itemname": "ghost_point_protect_l2",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "LVDS on/off",
+		"max": 100,
+		"min": 100			
+	},
+	{
+		"name": "Ghost Point Detect Period (ms)",
+		"itemname": "ghost_point_protect_interval",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "LH = 3ms, LV = 25ms",
+		"max": 3,
+		"min": 3			
+	},	
+	{
+		"name": "Vsync Freq",
+		"itemname": "osc_tracking_vsync_target",
+		"bit": 8,
+		"field": 8,
+		"showvalue": 1,
+		"description": "60Hz = 600, 55Hz = 550",
+		"max": 600,
+		"min": 600			
+	},
+	{
+		"name": "PALM_EN",
+		"itemname": "tp_sample_alg_val_rfeh_2",
+		"bit": 1,
+		"field": 0,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "RE_CAL_EN",
+		"itemname": "tp_sample_alg_val_rfeh_2",
+		"bit": 1,
+		"field": 1,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},		
+	{
+		"name": "BAS_UDT_EN",
+		"itemname": "tp_sample_alg_val_rfeh_2",
+		"bit": 1,
+		"field": 2,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "IDLE_EN",
+		"itemname": "tp_sample_alg_val_rfeh_2",
+		"bit": 1,
+		"field": 3,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},		
+	{
+		"name": "SW_TSIX_EN",
+		"itemname": "tp_sample_alg_val_rfeh_3",
+		"bit": 1,
+		"field": 0,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "LPWUG_EN",
+		"itemname": "tp_sample_alg_val_rfeh_3",
+		"bit": 1,
+		"field": 4,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},		
+	{
+		"name": "NOISE_DET_EN",
+		"itemname": "tp_sample_alg_val_rfeh_ad",
+		"bit": 1,
+		"field": 3,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "TX_HOP_EN",
+		"itemname": "tp_sample_alg_val_rfeh_3",
+		"bit": 1,
+		"field": 7,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},		
+	{
+		"name": "SIG_THX_SCALE_EN",
+		"itemname": "tp_sample_alg_val_rfeh_ad",
+		"bit": 1,
+		"field": 0,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "LEAVE_THX_EN",
+		"itemname": "tp_sample_alg_val_rfeh_ad",
+		"bit": 1,
+		"field": 2,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "HX_ID_EN",
+		"itemname": "tp_sample_alg_val_rfeh_af",
+		"bit": 1,
+		"field": 1,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "GHOST_PROTECT_SKIP_BUILD_BL_EN",
+		"itemname": "tp_sample_alg_val_rfeh_b0",
+		"bit": 1,
+		"field": 2,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "GHOST_PROTECT_SKIP_UPDATE_BL_EN",
+		"itemname": "tp_sample_alg_val_rfeh_b0",
+		"bit": 1,
+		"field": 3,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "RECAL_BY_GHOST_PROTECT_EN",
+		"itemname": "tp_sample_alg_val_rfeh_b0",
+		"bit": 1,
+		"field": 4,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	},
+	{
+		"name": "GHOST_PROTECT_SKIP_RECOUNT_EN",
+		"itemname": "tp_sample_alg_val_rfeh_b0",
+		"bit": 1,
+		"field": 5,
+		"showvalue": 0,
+		"description": "",
+		"max": 0,
+		"min": 0			
+	}	
+]
