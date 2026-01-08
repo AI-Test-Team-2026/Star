@@ -23,9 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		echo '  <link rel="stylesheet" href="'.base_url().'assets/css/oem_main_list.css" />'."\n";
 		echo '  <link rel="stylesheet" href="'.base_url().'assets/highlight/styles/a11y-dark.min.css"" />'."\n";
 		echo '  <script src="'.base_url().'assets/js/jquery.min.js"></script>'."\n";
+		echo '  <link rel="stylesheet" href="'.base_url().'assets/coloris/dist/coloris.min.css" />'."\n";
+		echo '  <script src="'.base_url().'assets/coloris/dist/coloris.min.js"></script>'."\n";
 		?>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"/>
-		<script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
 	</head>
 	<body class="hold-transition sidebar-mini">
 		<!-- Site wrapper -->

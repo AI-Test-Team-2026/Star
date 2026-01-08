@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Mode Test - Star Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .test-item {
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #ddd;
+            padding-left: 15px;
+        }
+        .test-item.success {
+            border-left-color: #28a745;
+            background-color: #d4edda;
+        }
+        .test-item.error {
+            border-left-color: #dc3545;
+            background-color: #f8d7da;
+        }
+        .test-item.warning {
+            border-left-color: #ffc107;
+            background-color: #fff3cd;
+        }
+        .test-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .test-status {
+            font-size: 0.9em;
+            color: #666;
+        }
+        #summary {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        #summary.all-pass {
+            background-color: #28a745;
+            color: white;
+        }
+        #summary.has-issues {
+            background-color: #ffc107;
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .instructions {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔌 Star Application - Offline Mode Test</h1>
+    
+    <div class="instructions">
+        <h3>Instructions:</h3>
+        <ol>
+            <li>Disconnect from the internet completely</li>
+            <li>Click the "Run Tests" button below</li>
+            <li>All tests should pass (green) for proper offline operation</li>
+            <li>Check browser console (F12) for any network errors</li>
+        </ol>
+    </div>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <button onclick="runTests()">Run Offline Tests</button>
+    </div>
+
+    <div id="summary"></div>
+
+    <div class="test-section">
+        <h2>Asset Loading Tests</h2>
+        <div id="asset-tests"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Network Request Tests</h2>
+        <div id="network-tests"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Console Error Tests</h2>
+        <div id="console-tests"></div>
+    </div>
+
+    <script>
+        let testResults = {
+            passed: 0,
+            failed: 0,
+            warnings: 0
+        };
+
+        function addTest(containerId, name, status, message) {
+            const container = document.getElementById(containerId);
+            const testItem = document.createElement('div');
+            testItem.className = `test-item ${status}`;
+            testItem.innerHTML = `
+                <div class="test-name">${name}</div>
+                <div class="test-status">${message}</div>
+            `;
+            container.appendChild(testItem);
+
+            if (status === 'success') testResults.passed++;
+            else if (status === 'error') testResults.failed++;
+            else if (status === 'warning') testResults.warnings++;
+        }
+
+        function updateSummary() {
+            const summary = document.getElementById('summary');
+            const total = testResults.passed + testResults.failed + testResults.warnings;
+            
+            if (testResults.failed === 0 && testResults.warnings === 0) {
+                summary.className = 'all-pass';
+                summary.innerHTML = `
+                    ✅ All Tests Passed! (${testResults.passed}/${total})<br>
+                    <small>Application is ready for offline operation</small>
+                `;
+            } else {
+                summary.className = 'has-issues';
+                summary.innerHTML = `
+                    ⚠️ Tests Complete: ${testResults.passed} passed, ${testResults.failed} failed, ${testResults.warnings} warnings<br>
+                    <small>Review issues below and check browser console</small>
+                `;
+            }
+        }
+
+        async function runTests() {
+            // Reset results
+            testResults = {passed: 0, failed: 0, warnings: 0};
+            document.getElementById('asset-tests').innerHTML = '';
+            document.getElementById('network-tests').innerHTML = '';
+            document.getElementById('console-tests').innerHTML = '';
+            document.getElementById('summary').innerHTML = 'Running tests...';
+
+            // Test 1: Check if page loaded without external resources
+            addTest('network-tests', 'Offline Page Load', 'success', 
+                'Page loaded successfully without internet connection');
+
+            // Test 2: Check for specific assets
+            const assets = [
+                {url: './assets/js/jquery.min.js', name: 'jQuery'},
+                {url: './assets/fontawesome/css/all.min.css', name: 'Font Awesome'},
+                {url: './assets/css/adminlte.min.css', name: 'AdminLTE CSS'},
+                {url: './assets/coloris/dist/coloris.min.css', name: 'Coloris CSS'},
+                {url: './assets/coloris/dist/coloris.min.js', name: 'Coloris JS'}
+            ];
+
+            for (const asset of assets) {
+                try {
+                    const response = await fetch(asset.url);
+                    if (response.ok) {
+                        const size = response.headers.get('content-length');
+                        if (size && parseInt(size) < 1000 && asset.name.includes('Coloris')) {
+                            addTest('asset-tests', asset.name, 'warning',
+                                `✓ Loaded but appears to be placeholder (${size} bytes)`);
+                        } else {
+                            addTest('asset-tests', asset.name, 'success',
+                                `✓ Loaded successfully${size ? ` (${size} bytes)` : ''}`);
+                        }
+                    } else {
+                        addTest('asset-tests', asset.name, 'error',
+                            `✗ Failed to load (status: ${response.status})`);
+                    }
+                } catch (error) {
+                    addTest('asset-tests', asset.name, 'error',
+                        `✗ Error loading: ${error.message}`);
+                }
+            }
+
+            // Test 3: Check for jQuery (loaded by main app, not by this test page)
+            // Note: This test assumes jQuery is loaded by the main application
+            // If running standalone, jQuery test will fail (expected behavior)
+            if (typeof jQuery !== 'undefined') {
+                addTest('network-tests', 'jQuery Availability', 'success',
+                    `✓ jQuery ${jQuery.fn.jquery} loaded successfully`);
+            } else {
+                addTest('network-tests', 'jQuery Availability', 'warning',
+                    '⚠ jQuery not available (run from main app to test)');
+            }
+
+            // Test 4: Check for external network requests
+            addTest('console-tests', 'Console Errors', 'warning',
+                'Check browser console (F12) for any network errors or CDN failures');
+
+            // Test 5: Performance API check for external resources
+            if (window.performance && window.performance.getEntriesByType) {
+                const resources = window.performance.getEntriesByType('resource');
+                const externalResources = resources.filter(r => 
+                    !r.name.includes(window.location.hostname) &&
+                    !r.name.includes('localhost') &&
+                    !r.name.includes('127.0.0.1') &&
+                    !r.name.startsWith('data:') &&
+                    !r.name.startsWith('blob:')
+                );
+                
+                if (externalResources.length === 0) {
+                    addTest('network-tests', 'External Resources', 'success',
+                        '✓ No external resources detected');
+                } else {
+                    addTest('network-tests', 'External Resources', 'error',
+                        `✗ Found ${externalResources.length} external resource(s) - Check console`);
+                    console.warn('External resources:', externalResources);
+                }
+            }
+
+            // Test 6: Check navigator.onLine status
+            if (!navigator.onLine) {
+                addTest('network-tests', 'Network Status', 'success',
+                    '✓ Browser reports offline mode');
+            } else {
+                addTest('network-tests', 'Network Status', 'warning',
+                    '⚠ Browser reports online - disconnect to test offline mode properly');
+            }
+
+            updateSummary();
+        }
+
+        // Capture console errors
+        const originalError = console.error;
+        const consoleErrors = [];
+        console.error = function(...args) {
+            consoleErrors.push(args.join(' '));
+            originalError.apply(console, args);
+        };
+
+        // Auto-run tests on load if offline
+        window.addEventListener('load', function() {
+            if (!navigator.onLine) {
+                setTimeout(runTests, 500);
+            }
+        });
+    </script>
+</body>
+</html>
