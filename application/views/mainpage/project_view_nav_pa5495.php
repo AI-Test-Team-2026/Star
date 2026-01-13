@@ -49,6 +49,15 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+      <!-- Database Backend Indicator -->
+      <li class="nav-item">
+        <?php
+        // Load database indicator helper
+        $this->load->helper('db_indicator');
+        echo db_backend_badge();
+        ?>
+      </li>
+
       <!-- Messages Dropdown Menu -->
       
       <!-- Notifications Dropdown Menu -->
