@@ -6,6 +6,11 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 
+# SQLite database files
+/db/cache.db
+/db/*.db
+/db/*.db-*
+
 !application/*/.htaccess
 
 composer.lock

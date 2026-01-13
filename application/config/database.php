@@ -3,94 +3,199 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
-| DATABASE CONNECTIVITY SETTINGS
+| DATABASE CONNECTIVITY SETTINGS WITH FALLBACK
 | -------------------------------------------------------------------
-| This file will contain the settings needed to access your database.
+| This configuration implements automatic fallback from MySQL to SQLite
+| when MySQL is unavailable (offline mode).
 |
-| For complete instructions please consult the 'Database Connection'
-| page of the User Guide.
+| The system will:
+| 1. Attempt to connect to MySQL first
+| 2. If MySQL is unavailable, automatically switch to SQLite
+| 3. Log the active backend for debugging
 |
-| -------------------------------------------------------------------
-| EXPLANATION OF VARIABLES
-| -------------------------------------------------------------------
-|
-|	['dsn']      The full DSN string describe a connection to the database.
-|	['hostname'] The hostname of your database server.
-|	['username'] The username used to connect to the database
-|	['password'] The password used to connect to the database
-|	['database'] The name of the database you want to connect to
-|	['dbdriver'] The database driver. e.g.: mysqli.
-|			Currently supported:
-|				 cubrid, ibase, mssql, mysql, mysqli, oci8,
-|				 odbc, pdo, postgre, sqlite, sqlite3, sqlsrv
-|	['dbprefix'] You can add an optional prefix, which will be added
-|				 to the table name when using the  Query Builder class
-|	['pconnect'] TRUE/FALSE - Whether to use a persistent connection
-|	['db_debug'] TRUE/FALSE - Whether database errors should be displayed.
-|	['cache_on'] TRUE/FALSE - Enables/disables query caching
-|	['cachedir'] The path to the folder where cache files should be stored
-|	['char_set'] The character set used in communicating with the database
-|	['dbcollat'] The character collation used in communicating with the database
-|				 NOTE: For MySQL and MySQLi databases, this setting is only used
-| 				 as a backup if your server is running PHP < 5.2.3 or MySQL < 5.0.7
-|				 (and in table creation queries made with DB Forge).
-| 				 There is an incompatibility in PHP with mysql_real_escape_string() which
-| 				 can make your site vulnerable to SQL injection if you are using a
-| 				 multi-byte character set and are running versions lower than these.
-| 				 Sites using Latin-1 or UTF-8 database character set and collation are unaffected.
-|	['swap_pre'] A default table prefix that should be swapped with the dbprefix
-|	['encrypt']  Whether or not to use an encrypted connection.
-|
-|			'mysql' (deprecated), 'sqlsrv' and 'pdo/sqlsrv' drivers accept TRUE/FALSE
-|			'mysqli' and 'pdo/mysql' drivers accept an array with the following options:
-|
-|				'ssl_key'    - Path to the private key file
-|				'ssl_cert'   - Path to the public key certificate file
-|				'ssl_ca'     - Path to the certificate authority file
-|				'ssl_capath' - Path to a directory containing trusted CA certificats in PEM format
-|				'ssl_cipher' - List of *allowed* ciphers to be used for the encryption, separated by colons (':')
-|				'ssl_verify' - TRUE/FALSE; Whether verify the server certificate or not ('mysqli' only)
-|
-|	['compress'] Whether or not to use client compression (MySQL only)
-|	['stricton'] TRUE/FALSE - forces 'Strict Mode' connections
-|							- good for ensuring strict SQL while developing
-|	['ssl_options']	Used to set various SSL options that can be used when making SSL connections.
-|	['failover'] array - A array with 0 or more data for connections if the main should fail.
-|	['save_queries'] TRUE/FALSE - Whether to "save" all executed queries.
-| 				NOTE: Disabling this will also effectively disable both
-| 				$this->db->last_query() and profiling of DB queries.
-| 				When you run a query, with this setting set to TRUE (default),
-| 				CodeIgniter will store the SQL statement for debugging purposes.
-| 				However, this may cause high memory usage, especially if you run
-| 				a lot of SQL queries ... disable this to avoid that problem.
-|
-| The $active_group variable lets you choose which connection group to
-| make active.  By default there is only one group (the 'default' group).
-|
-| The $query_builder variables lets you determine whether or not to load
-| the query builder class.
+| Configuration is loaded from db_config.php and can be overridden
+| with environment variables in .env file.
 */
+
+// Load fallback configuration
+if (file_exists(APPPATH . 'config/db_config.php')) {
+    require_once APPPATH . 'config/db_config.php';
+} else {
+    // Fallback defaults if db_config.php doesn't exist
+    $db_fallback_config = array(
+        'mysql' => array(
+            'hostname' => 'localhost',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'Himax_Automobile',
+            'port' => 3306,
+            'timeout' => 3,
+        ),
+        'sqlite' => array(
+            'path' => APPPATH . '../db/cache.db',
+        ),
+        'settings' => array(
+            'force_sqlite' => false,
+            'enable_logging' => true,
+            'log_file' => APPPATH . 'logs/db_fallback.log',
+        ),
+    );
+}
+
 $active_group = 'default';
 $query_builder = TRUE;
 
-$db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'Himax_Automobile',
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
-);
+// Function to test MySQL connection
+function test_mysql_connection($config) {
+    try {
+        // Set a short timeout for the connection test
+        $old_timeout = ini_get('default_socket_timeout');
+        ini_set('default_socket_timeout', $config['timeout']);
+        
+        $connection = @new mysqli(
+            $config['hostname'],
+            $config['username'],
+            $config['password'],
+            $config['database'],
+            $config['port']
+        );
+        
+        // Restore original timeout
+        ini_set('default_socket_timeout', $old_timeout);
+        
+        if ($connection->connect_error) {
+            return false;
+        }
+        
+        $connection->close();
+        return true;
+    } catch (Exception $e) {
+        return false;
+    }
+}
+
+// Function to log database connection info
+function log_db_connection($backend, $message) {
+    global $db_fallback_config;
+    
+    if (!isset($db_fallback_config['settings']['enable_logging']) ||
+        !$db_fallback_config['settings']['enable_logging']) {
+        return;
+    }
+    
+    $logFile = isset($db_fallback_config['settings']['log_file']) 
+        ? $db_fallback_config['settings']['log_file']
+        : APPPATH . 'logs/db_fallback.log';
+    
+    $logDir = dirname($logFile);
+    if (!is_dir($logDir)) {
+        @mkdir($logDir, 0755, true);
+    }
+    
+    $timestamp = date('Y-m-d H:i:s');
+    $logMessage = sprintf("[%s] [%s] %s\n", $timestamp, strtoupper($backend), $message);
+    @file_put_contents($logFile, $logMessage, FILE_APPEND);
+}
+
+// Determine which database to use
+$use_sqlite = false;
+$force_sqlite = isset($db_fallback_config['settings']['force_sqlite']) 
+    && $db_fallback_config['settings']['force_sqlite'];
+
+if ($force_sqlite) {
+    $use_sqlite = true;
+    log_db_connection('sqlite', 'Forced SQLite mode enabled');
+} else {
+    // Test MySQL connection
+    if (!test_mysql_connection($db_fallback_config['mysql'])) {
+        $use_sqlite = true;
+        log_db_connection('sqlite', 'MySQL connection failed, falling back to SQLite');
+    } else {
+        log_db_connection('mysql', 'Successfully connected to MySQL');
+    }
+}
+
+// Configure database based on test result
+if ($use_sqlite) {
+    // SQLite Configuration
+    $sqlitePath = $db_fallback_config['sqlite']['path'];
+    
+    // Ensure directory exists
+    $dbDir = dirname($sqlitePath);
+    if (!is_dir($dbDir)) {
+        @mkdir($dbDir, 0755, true);
+    }
+    
+    // Initialize SQLite schema if needed
+    if (file_exists($sqlitePath)) {
+        $db_size = filesize($sqlitePath);
+        if ($db_size == 0 || $db_size === false) {
+            // Empty or unreadable file, initialize
+            $schemaFile = APPPATH . '../db/schema.sql';
+            if (file_exists($schemaFile)) {
+                try {
+                    $pdo = new PDO('sqlite:' . $sqlitePath);
+                    $pdo->exec('PRAGMA foreign_keys = ON');
+                    $sql = file_get_contents($schemaFile);
+                    $pdo->exec($sql);
+                    log_db_connection('sqlite', 'SQLite schema initialized');
+                } catch (Exception $e) {
+                    log_db_connection('sqlite', 'Error initializing schema: ' . $e->getMessage());
+                }
+            }
+        }
+    }
+    
+    $db['default'] = array(
+        'dsn'=> '',
+        'hostname' => '',
+        'username' => '',
+        'password' => '',
+        'database' => $sqlitePath,
+        'dbdriver' => 'sqlite3',
+        'dbprefix' => '',
+        'pconnect' => FALSE,
+        'db_debug' => (ENVIRONMENT !== 'production'),
+        'cache_on' => FALSE,
+        'cachedir' => '',
+        'char_set' => 'utf8',
+        'dbcollat' => 'utf8_general_ci',
+        'swap_pre' => '',
+        'encrypt' => FALSE,
+        'compress' => FALSE,
+        'stricton' => FALSE,
+        'failover' => array(),
+        'save_queries' => TRUE
+    );
+    
+    // Store backend info for later retrieval
+    define('DB_BACKEND', 'sqlite');
+} else {
+    // MySQL Configuration
+    $mysql_config = $db_fallback_config['mysql'];
+    
+    $db['default'] = array(
+        'dsn'=> '',
+        'hostname' => $mysql_config['hostname'],
+        'username' => $mysql_config['username'],
+        'password' => $mysql_config['password'],
+        'database' => $mysql_config['database'],
+        'dbdriver' => 'mysqli',
+        'dbprefix' => '',
+        'pconnect' => FALSE,
+        'db_debug' => (ENVIRONMENT !== 'production'),
+        'cache_on' => FALSE,
+        'cachedir' => '',
+        'char_set' => 'utf8',
+        'dbcollat' => 'utf8_general_ci',
+        'swap_pre' => '',
+        'encrypt' => FALSE,
+        'compress' => FALSE,
+        'stricton' => FALSE,
+        'failover' => array(),
+        'save_queries' => TRUE
+    );
+    
+    // Store backend info for later retrieval
+    define('DB_BACKEND', 'mysql');
+}
