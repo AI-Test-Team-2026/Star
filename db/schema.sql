@@ -103,5 +103,8 @@ CREATE INDEX IF NOT EXISTS idx_version_lists_project ON pa5478_version_lists(pro
 CREATE INDEX IF NOT EXISTS idx_version_lists_version ON pa5478_version_lists(version);
 CREATE INDEX IF NOT EXISTS idx_projects_panel ON pa5478_projects(panel_name);
 
--- Insert default admin user (password should be hashed in production)
-INSERT OR IGNORE INTO pa_users (id, userid, password, username) VALUES (1, 'admin', '123456', 'Administrator');
+-- Insert default admin user (password: admin - CHANGE THIS IN PRODUCTION!)
+-- Note: In production, use proper password hashing (bcrypt, Argon2, etc.)
+-- This is a placeholder for initial setup only
+INSERT OR IGNORE INTO pa_users (id, userid, password, username) 
+VALUES (1, 'admin', 'admin', 'Administrator');
